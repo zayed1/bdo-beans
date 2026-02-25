@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+
+    --background: 37 56% 96%;
+    --foreground: 15 52% 7%;
+    
+    --primary: 18 42% 17%;
+    --primary-foreground: 37 56% 96%;
+    
+    --secondary: 16 33% 27%;
+    --secondary-foreground: 37 56% 96%;
+    
+    --muted: 20 24% 44%;
+    --muted-foreground: 20 15% 55%;
+    
+    --accent: 38 86% 38%;
+    --accent-foreground: 15 52% 7%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 15 52% 7%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 15 52% 7%;
+    
+    --border: 30 25% 82%;
+    
+    --destructive: 0 55% 39%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 153 37% 30%;
+    --success-foreground: 0 0% 100%;
+    
+    --ring: 38 86% 38%;
+    --radius: 0.75rem;
+
+    --gold: #B8860B;
+    --gold-light: #D4A843;
+    --gold-subtle: #F5ECD7;
+    --brown-950: #1A0E08;
+    --brown-900: #2C1810;
+    --brown-800: #3C2415;
+    --brown-700: #5C3D2E;
+    --brown-500: #8B6954;
+    --brown-300: #C4A882;
+    --brown-200: #DDD0C0;
+    --brown-100: #F0E8DE;
+    --brown-50: #F9F5F0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    direction: rtl;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    letter-spacing: -0.01em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--brown-50);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brown-300);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--brown-500);
+  }
+
+  ::selection {
+    background: var(--gold-subtle);
+    color: var(--brown-950);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  img {
+    background: var(--brown-100);
+  }
+}
+
+@layer utilities {
+  .shadow-warm {
+    box-shadow: 0 2px 12px rgba(26, 14, 8, 0.06);
+  }
+  
+  .shadow-warm-hover {
+    box-shadow: 0 20px 60px rgba(26, 14, 8, 0.12);
+  }
+
+  .shadow-luxury {
+    box-shadow: 0 4px 20px rgba(26, 14, 8, 0.08);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #3C2415, #5C3D2E);
+    @apply text-white shadow-warm transition-all duration-300;
+  }
+  .btn-gradient:hover {
+    background: linear-gradient(135deg, #5C3D2E, #8B6954);
+    @apply shadow-warm-hover -translate-y-0.5;
+  }
+  .btn-gradient:active {
+    @apply translate-y-0 scale-[0.98];
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    @apply text-white transition-all duration-300;
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    @apply -translate-y-0.5 shadow-warm-hover;
+  }
+  .btn-gold:active {
+    @apply translate-y-0 scale-[0.98];
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-brown-900 {
+    background-color: var(--brown-900);
+  }
+
+  .bg-brown-50 {
+    background-color: var(--brown-50);
+  }
+
+  .text-brown-950 {
+    color: var(--brown-950);
+  }
+
+  .text-brown-500 {
+    color: var(--brown-500);
+  }
+
+  .text-brown-300 {
+    color: var(--brown-300);
+  }
+
+  .border-brown-200 {
+    border-color: var(--brown-200);
+  }
+
+  .footer-link:hover {
+    color: var(--gold) !important;
+  }
+}
